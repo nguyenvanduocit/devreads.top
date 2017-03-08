@@ -1,0 +1,12 @@
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s ease;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+.slide-left-enter, .slide-right-leave-active {
+  opacity: 0;
+}
+.slide-left-leave-active, .slide-right-enter {
+  opacity: 0;
+}

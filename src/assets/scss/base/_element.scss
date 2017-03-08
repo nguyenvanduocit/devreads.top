@@ -1,0 +1,31 @@
+body{
+  background: $body-bg;
+}
+p, ul, ol, quote{
+  margin-top: 24px;
+  margin-bottom: 0;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #646C77;
+  display: block;
+  a{
+    color: $link-color;
+    text-decoration: $link-decoration;
+    border-bottom: 1px dotted #646C77;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+
+  }
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+.no-style-list{
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}

@@ -1,0 +1,13 @@
+html{
+  font-family: $font__primary;
+  color: $body-color;
+}
+h2{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  display: block;
+  font-family: $font__heading;
+}

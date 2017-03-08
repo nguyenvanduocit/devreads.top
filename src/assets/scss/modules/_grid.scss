@@ -1,0 +1,52 @@
+@import "../../../../node_modules/gridle/sass/gridle/gridle-flex";
+
+@include gridle_setup((
+        context : $column-count,
+        gutter-width : $gutter-width,
+        states-classes : false,
+));
+
+@include gridle_register_state(xs, (
+        max-width: $xs-max,
+));
+
+@include gridle_register_state(sm, (
+        min-width : $sm-min,
+        max-width : $sm-max
+));
+
+@include gridle_register_state(md, (
+        min-width : $md-min,
+        max-width : $md-max
+));
+
+@include gridle_register_state(lg, (
+        min-width : $lg-min,
+        max-width : $lg-max
+));
+
+@include gridle_register_state(xl, (
+        min-width : $xl-min
+));
+
+
+// generate classes :
+@include gridle_generate_classes();
+
+
+@include gridle_generate_custom_class( ('column','@','%state') ) {
+  flex-direction: column;
+}
+
+@include gridle_generate_custom_class( ('column','-','reverse','@','%state') ) {
+  flex-direction: column-reverse;
+}
+
+.container {
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+.container-fluid {
+  @include make-container();
+}

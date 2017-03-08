@@ -1,0 +1,213 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+  font-size: ($sizeValue * 16) * 1px;
+  font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+  clear: both;
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.1.
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px))
+//    767px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  @include media-breakpoint-up($lower, $breakpoints) {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  @include media-breakpoint-between($name, $name, $breakpoints) {
+    @content;
+  }
+}
+
+@mixin make-container($gutters: $grid-gutter-widths) {
+  margin-left: auto;
+  margin-right: auto;
+
+  @each $breakpoint in map-keys($gutters) {
+    @include media-breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint);
+      padding-right: ($gutter / 2);
+      padding-left:  ($gutter / 2);
+    }
+  }
+}
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      width: 100%;
+      max-width: $container-max-width;
+    }
+  }
+}
+
+
+// Text truncate
+// Requires inline-block or block for proper styling
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin hover {
+  &:hover {
+    @content
+  }
+}
+
+@mixin hover-focus {
+  &:focus,
+  &:hover {
+    @content
+  }
+}
+
+@mixin plain-hover-focus {
+  &,
+  &:focus,
+  &:hover {
+    @content
+  }
+}
+
+@mixin hover-focus-active {
+  &:focus,
+  &:active,
+  &:hover {
+    @content
+  }
+}
+
+@mixin plain-hover-focus-active-visited {
+  &,
+  &:visited,
+  &:focus,
+  &:active,
+  &:hover {
+    @content
+  }
+}
+
+@mixin hover-focus-active-visited {
+  &:visited,
+  &:focus,
+  &:active,
+  &:hover {
+    @content
+  }
+}
+
+// Responsive image
+//
+// Keep images from scaling beyond the width of their parents.
+
+@mixin img-fluid {
+  // Part 1: Set a maximum relative to the parent
+  max-width: 100%;
+  // Part 2: Override the height to auto, otherwise images will be stretched
+  // when setting a width and height attribute on the img element.
+  height: auto;
+}
+
+
+// Retina image
+//
+// Short retina mixin for setting background-image and -size.
+
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+  background-image: url($file-1x);
+
+  // Autoprefixer takes care of adding -webkit-min-device-pixel-ratio and -o-min-device-pixel-ratio,
+  // but doesn't convert dppx=>dpi.
+  // There's no such thing as unprefixed min-device-pixel-ratio since it's nonstandard.
+  // Compatibility info: http://caniuse.com/#feat=css-media-resolution
+  @media
+  only screen and (min-resolution: 192dpi), // IE9-11 don't support dppx
+  only screen and (min-resolution: 2dppx) { // Standardized
+    background-image: url($file-2x);
+    background-size: $width-1x $height-1x;
+  }
+}
