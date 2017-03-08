@@ -4,7 +4,7 @@
 
 # Development
 
-This project uses PWA technology. That mean the website still work event you lost the internet. PWA require `HTTPS`. And it only work when you build the project(`npm run build`). Because if apply service work on development will will be hard to handle caching.
+This project uses PWA technology. That mean the website still works event you lost the internet. The PWA require `HTTPS`. And it only work when you build the project(`npm run build`). Because if apply service work on development will will be hard to handle caching.
 
 ## API Server
 
