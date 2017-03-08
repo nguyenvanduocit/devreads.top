@@ -1,6 +1,11 @@
 # topnews
 
-> A Vue.js project
+> A Vue.js project to list 5 news from the popular technology websites.
+
+# Development
+
+This project uses PWA technology. That mean the website still work event you lost the internet. PWA require:
+- HTTPS
 
 ## Build Setup
 
