@@ -17,7 +17,7 @@ export default {
       })
       let getActivatedSiteIdsPromise = window.preferenceStore.getItem('activatedSiteIds').then((value) => {
         if (!value) {
-          value = [1, 2, 3, 4, 5, 6]
+          value = [1, 2, 3, 4, 5]
           commit('SET_ACTIVATED_SITES', value)
           window.preferenceStore.setItem('activatedSiteIds', value)
         } else {

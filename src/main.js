@@ -16,10 +16,10 @@ Vue.config.productionTip = false
  */
 window.preferenceStore = localforage.createInstance({
   driver: localforage.INDEXEDDB,
-  name: 'topnews',
+  name: 'devreads',
   version: 1.0,
   storeName: 'preference',
-  description: 'Top News For Dev Data'
+  description: 'Local database for Dev Reads'
 })
 
 if ('serviceWorker' in navigator) {

@@ -1,16 +1,10 @@
 <template>
-  <div class="page page--developer-pick">
-    <div class="container">
-      <div class="row">
-        <div class="gr-12">
-          <div class="header">
-            <img alt="Developer's pick" class="icon" src="static/images/logos/48x48.png">
-            <h1 class="title">Developer's picks</h1>
-          </div>
-          <news-list :newsList="pickedNewsList"></news-list>
-        </div>
-      </div>
+  <div class="site-block developer-pick">
+    <div class="header">
+      <img alt="Developer's pick" class="icon" src="static/images/logos/48x48.png">
+      <h1 class="title">Developer's picks</h1>
     </div>
+    <news-list :newsList="pickedNewsList"></news-list>
   </div>
 </template>
 <script>
@@ -36,8 +30,7 @@ export default {
 <style lang="scss" scoped>
   @import "./../assets/scss/variables";
   @import "./../assets/scss/mixins/mixins-master";
-  .page--developer-pick{
-    padding-top: 40px;
+  .developer-pick{
     .header{
       display: flex;
       justify-content: flex-start;

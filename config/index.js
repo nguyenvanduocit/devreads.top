@@ -28,7 +28,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api/v1/sites': {
+      '/api/': {
         target: 'https://devreads.top',
         changeOrigin: true
       }

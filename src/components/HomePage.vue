@@ -3,9 +3,11 @@
     <div class="site-list">
       <div class="container">
         <div class="row">
+          <div :class="columnClass">
+            <developer-pick></developer-pick>
+          </div>
           <template v-for="site in activatedSites">
             <div :class="columnClass">
-
               <site-block :site="site"></site-block>
             </div>
           </template>
@@ -17,12 +19,14 @@
 
 <script>
 import SiteBlock from './SiteBlock.vue'
+import DeveloperPick from './DeveloperPickBlock.vue'
 import { mapGetters } from 'vuex'
 import {isEmpty} from 'lodash'
 
 export default {
   components: {
-    SiteBlock
+    SiteBlock,
+    DeveloperPick
   },
   beforeMount () {
     if (isEmpty(this.siteList)) {

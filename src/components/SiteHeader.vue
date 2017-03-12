@@ -4,7 +4,6 @@
       <nav class="inner">
         <div class="left">
           <router-link class="site-brand" to="/" exact><span class="hide@sm hide@xs">👩‍💻📰.🔝</span>Dev Reads</router-link>
-          <header-navigator></header-navigator>
         </div>
         <toolbar></toolbar>
       </nav>
@@ -14,11 +13,9 @@
 
 <script>
 import Toolbar from './Toolbar.vue'
-import HeaderNavigator from './HeaderNavigator.vue'
 export default {
   components: {
-    Toolbar,
-    HeaderNavigator
+    Toolbar
   },
   data () {
     return {

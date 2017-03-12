@@ -95,7 +95,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     ]),
     new SWPrecacheWebpackPlugin(
       {
-        cacheId: 'topnews',
+        cacheId: 'devreads',
         filename: 'service-worker.js',
         maximumFileSizeToCacheInBytes: 4194304,
         minify: true,
