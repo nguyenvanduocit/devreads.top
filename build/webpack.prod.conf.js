@@ -102,6 +102,12 @@ var webpackConfig = merge(baseWebpackConfig, {
         runtimeCaching: [{
           handler: 'networkFirst',
           urlPattern: /\/api\//,
+        },{
+          handler: 'cacheFirst',
+          urlPattern: /[.](ttf)|(woff)$/,
+        },{
+          handler: 'cacheFirst',
+          urlPattern: /fonts\.googleapis\.com/,
         }],
       }
     )
