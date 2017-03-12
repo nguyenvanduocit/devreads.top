@@ -1,6 +1,14 @@
-# topnews
+# top news for developer
 
-> A Vue.js project
+> A Vue.js project to list 5 news from the popular technology websites.
+
+# Development
+
+This project uses PWA technology. That mean the website still works event you lost the internet. The PWA require `HTTPS`. And it only work when you build the project(`npm run build`). Because if run the service worker on development, the assets will be cached, it's hard to develop.
+
+## API Server
+
+This project is just the front-end part. You need a server to crawl news and response to front-end. The API service was built with Golang, I will public it soon.
 
 ## Build Setup
 
