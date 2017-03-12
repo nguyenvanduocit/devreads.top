@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api/v1/sites': {
-        target: 'https://five.senviet.org',
+        target: 'https://devreads.top',
         changeOrigin: true
       }
     },
