@@ -23,7 +23,7 @@ export default {
     },
     newsList () {
       let newsList = {}
-      for (let newsRelationship of this.site.relationships.news.data) {
+      for (let newsRelationship of this.site.relationships.posts.data) {
         // Avoid auto sorting
         newsList['_' + newsRelationship.id] = this.$store.getters['news/newsList'][newsRelationship.id]
       }

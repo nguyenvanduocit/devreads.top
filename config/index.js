@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api/': {
-        target: 'https://devreads.top',
+        target: 'http://localhost:8282',
         changeOrigin: true
       }
     },

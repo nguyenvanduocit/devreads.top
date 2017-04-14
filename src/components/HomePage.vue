@@ -3,9 +3,9 @@
     <div class="site-list">
       <div class="container">
         <div class="row">
-          <div :class="columnClass">
+          <!--<div :class="columnClass">
             <developer-pick></developer-pick>
-          </div>
+          </div>-->
           <template v-for="site in activatedSites">
             <div :class="columnClass">
               <site-block :site="site"></site-block>

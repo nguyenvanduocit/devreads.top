@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import axios from 'axios'
-import {toNumber} from 'lodash'
 export default {
   namespaced: true,
   state: {
@@ -25,12 +24,10 @@ export default {
   },
   mutations: {
     ADD_NEWS: (state, news) => {
-      news.id = toNumber(news.id)
       Vue.set(state.newsList, news.id, news)
     },
     ADD_PICKED_NEWS: (state, news) => {
-      news.id = toNumber(news.id)
-      Vue.set(state.pickedNewsList, '_' + news.id, news)
+      Vue.set(state.pickedNewsList, news.id, news)
     }
   },
   getters: {

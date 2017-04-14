@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
-import {forEach, has, toNumber} from 'lodash'
+import {forEach, has} from 'lodash'
 export default {
   namespaced: true,
   state: {
@@ -29,7 +29,6 @@ export default {
   },
   mutations: {
     ADD_SITE: (state, site) => {
-      site.id = toNumber(site.id)
       Vue.set(state.siteList, site.id, site)
     }
   },
@@ -38,13 +37,16 @@ export default {
       return state.siteList
     },
     activatedSites: (state, getters, rootState, rootGetters) => {
-      let activatedSites = {}
-      forEach(rootGetters['preference/activatedSiteIds'], (activatedSiteId) => {
-        if (has(state.siteList, activatedSiteId)) {
-          activatedSites[activatedSiteId] = state.siteList[activatedSiteId]
-        }
-      })
-      return activatedSites
+      if (rootGetters['preference/activatedSiteIds']) {
+        let activatedSites = {}
+        forEach(rootGetters['preference/activatedSiteIds'], (activatedSiteId) => {
+          if (has(state.siteList, activatedSiteId)) {
+            activatedSites[activatedSiteId] = state.siteList[activatedSiteId]
+          }
+        })
+        return activatedSites
+      }
+      return state.siteList
     }
   }
 }
