@@ -1,5 +1,8 @@
 <template>
   <div class="toolbar">
+    <div class="toolbar-item extension">
+      <a href="https://chrome.google.com/webstore/detail/bafkfaeaenpipjaenkipbfoacbjbnoal" target="_blank" class="toolbar-item chrome-extension">Chrome Extension</a>
+    </div>
     <div class="toolbar-item layout-toogle" @click.prevent="toggleLayout">
       <i v-show="layout === 'CLEAN'" class="item-icon icon-two-column-layout"></i>
       <i v-show="layout === 'COMPACT'" class="item-icon icon-one-column-layout"></i>
@@ -31,6 +34,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
     .toolbar-item{
       display: block;
       padding: 10px;

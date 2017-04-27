@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
-import PreferencePage from '@/components/PreferencePage'
 
 Vue.use(Router)
 
@@ -16,7 +15,7 @@ export default new Router({
     {
       path: '/preference',
       name: 'Preference',
-      component: PreferencePage
+      component: resolve => require(['@/components/PreferencePage'], resolve)
     }
   ],
   scrollBehavior (to, from, savedPosition) {

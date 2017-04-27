@@ -3,7 +3,7 @@
     <div class="container">
       <nav class="inner">
         <div class="left">
-          <router-link class="site-brand" to="/" exact><span class="hide@sm hide@xs">👩‍💻📰.🔝</span>Dev Reads</router-link>
+          <router-link class="site-brand" to="/" exact>Dev Reads.🔝</router-link>
         </div>
         <toolbar></toolbar>
       </nav>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
-import {forEach, has} from 'lodash'
+import forEach from 'lodash/forEach'
+import has from 'lodash/has'
 export default {
   namespaced: true,
   state: {

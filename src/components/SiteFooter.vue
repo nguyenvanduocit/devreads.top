@@ -2,7 +2,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="inner">
-        <p class="copy">&copy; 2017 Sen Việt</p>
+        <p class="copy">&copy; 2017 <a href="https://senviet.org" target="_blank">Sen Việt</a>, nguyenvanduocit@gmail.com</p>
         <p class="tagline">Mãi mãi xin là ngọn gió nâng dậy cành hoa nơi bước chân Người.</p>
       </div>
     </div>

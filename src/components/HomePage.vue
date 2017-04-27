@@ -21,7 +21,7 @@
 import SiteBlock from './SiteBlock.vue'
 import DeveloperPick from './DeveloperPickBlock.vue'
 import { mapGetters } from 'vuex'
-import {isEmpty} from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 
 export default {
   components: {

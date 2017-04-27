@@ -19,6 +19,6 @@ export default {
   @import "./../assets/scss/variables";
   @import "./../assets/scss/mixins/mixins-master";
   .page--preference{
-    padding-top: 30px;
+    padding-top: 40px;
   }
 </style>

@@ -24,7 +24,8 @@
 <script>
 import Switcher from './Switcher.vue'
 import { mapGetters } from 'vuex'
-import {isEmpty, indexOf, toNumber} from 'lodash'
+import isEmpty from 'lodash/isEmpty'
+import indexOf from 'lodash/indexOf'
 export default {
   components: {
     Switcher
@@ -48,13 +49,15 @@ export default {
       this.$store.commit('preference/REMOVE_ACTIVATED_SITE', siteId)
     },
     isActivated (siteId) {
-      return indexOf(this.activatedSiteIds, toNumber(siteId)) > -1
+      return indexOf(this.activatedSiteIds, siteId) > -1
     }
   }
 }
 </script>
 <style lang="scss" scoped>
+  @import "./../assets/scss/variables";
   .site-preference{
+    color: $brand-primary;
     .header{
       .title{
         font-size: 20px;
@@ -73,7 +76,7 @@ export default {
         border: 1px solid #eeeeee;
         thead{
           background-color: #e0e0e0;
-          color: #000;
+          color: $brand-primary;
           text-align: left;
           vertical-align: bottom;
           th{
@@ -100,6 +103,7 @@ export default {
         }
         .status{
           text-align: center;
+          width: 150px;
         }
       }
     }

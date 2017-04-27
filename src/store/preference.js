@@ -1,4 +1,5 @@
-import {indexOf, pull} from 'lodash'
+import pull from 'lodash/pull'
+import indexOf from 'lodash/indexOf'
 export default {
   namespaced: true,
   state: {
@@ -39,7 +40,8 @@ export default {
     SET_ACTIVATED_SITES: (state, siteIds, updateStorage) => {
       state.activatedSiteIds = siteIds
     },
-    ADD_ACTIVATED_SITE: (state, siteId, quite) => {
+    ADD_ACTIVATED_SITE: (state, siteId) => {
+      console.log(siteId)
       if (indexOf(state.activatedSiteIds, siteId) === -1) {
         state.activatedSiteIds.push(siteId)
         window.preferenceStore.setItem('activatedSiteIds', state.activatedSiteIds)

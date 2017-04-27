@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import {isEmpty} from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 import NewsList from './NewsList.vue'
 import { mapGetters } from 'vuex'
 export default {
