@@ -20,6 +20,8 @@ export default {
       let getActivatedSiteIdsPromise = ls.getItem('activatedSiteIds').then((value) => {
         if (value) {
           commit('SET_ACTIVATED_SITES', value)
+        } else {
+          commit('SET_ACTIVATED_SITES', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
         }
       })
       return Promise.all([getLayoutPromise, getActivatedSiteIdsPromise])
@@ -42,7 +44,6 @@ export default {
       state.activatedSiteIds = siteIds
     },
     ADD_ACTIVATED_SITE: (state, siteId) => {
-      console.log(siteId)
       if (indexOf(state.activatedSiteIds, siteId) === -1) {
         state.activatedSiteIds.push(siteId)
         ls.setItem('activatedSiteIds', state.activatedSiteIds)
