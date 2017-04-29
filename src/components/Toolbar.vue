@@ -55,7 +55,6 @@ export default {
       .item-icon{
         font-size: 17px;
       }
-
     }
   }
 </style>

@@ -5,22 +5,10 @@ import App from './App'
 import router from './router'
 import store from './store'
 import { sync } from 'vuex-router-sync'
-import localforage from 'localforage'
 import WebFont from 'webfontloader'
 
 sync(store, router)
 Vue.config.productionTip = false
-
-/**
- * Bootstrap
- */
-window.preferenceStore = localforage.createInstance({
-  driver: localforage.INDEXEDDB,
-  name: 'devreads',
-  version: 1.0,
-  storeName: 'preference',
-  description: 'Local database for Dev Reads'
-})
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')

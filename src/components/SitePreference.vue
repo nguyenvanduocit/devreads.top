@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           <tr v-for="site in siteList">
-            <td v-text="site.attributes.title"></td>
+            <td><a :href="site.attributes.url" v-text="site.attributes.title" target="_blank"></a></td>
             <td class="status"><switcher @on="onActivated(site.id)" @off="onDeactivated(site.id)" :checked="isActivated(site.id)"></switcher></td>
           </tr>
         </tbody>
@@ -58,6 +58,9 @@ export default {
   @import "./../assets/scss/variables";
   .site-preference{
     color: $brand-primary;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
     .header{
       .title{
         font-size: 20px;
@@ -95,8 +98,8 @@ export default {
               border-bottom: 1px solid #eeeeee;
               font-size: inherit;
               margin: 0;
-              &.status{
-
+              a{
+                color: $brand-primary;
               }
             }
           }

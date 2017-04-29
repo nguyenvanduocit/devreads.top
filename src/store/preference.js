@@ -1,5 +1,6 @@
 import pull from 'lodash/pull'
 import indexOf from 'lodash/indexOf'
+import ls from '../services/ls'
 export default {
   namespaced: true,
   state: {
@@ -8,7 +9,7 @@ export default {
   },
   actions: {
     LOAD_PREFERENCE: ({commit, state}) => {
-      let getLayoutPromise = window.preferenceStore.getItem('layout').then((value) => {
+      let getLayoutPromise = ls.getItem('layout').then((value) => {
         if (!value) {
           value = 'COMPACT'
           commit('SET_LAYOUT', value, true)
@@ -16,7 +17,7 @@ export default {
           commit('SET_LAYOUT', value)
         }
       })
-      let getActivatedSiteIdsPromise = window.preferenceStore.getItem('activatedSiteIds').then((value) => {
+      let getActivatedSiteIdsPromise = ls.getItem('activatedSiteIds').then((value) => {
         if (value) {
           commit('SET_ACTIVATED_SITES', value)
         }
@@ -26,10 +27,10 @@ export default {
     TOGGLE_LAYOUT: ({commit, state}) => {
       if (state.layout === 'COMPACT') {
         commit('SET_LAYOUT', 'CLEAN', true)
-        window.preferenceStore.setItem('layout', 'CLEAN')
+        ls.setItem('layout', 'CLEAN')
       } else {
         commit('SET_LAYOUT', 'COMPACT', true)
-        window.preferenceStore.setItem('layout', 'COMPACT')
+        ls.setItem('layout', 'COMPACT')
       }
     }
   },
@@ -44,13 +45,13 @@ export default {
       console.log(siteId)
       if (indexOf(state.activatedSiteIds, siteId) === -1) {
         state.activatedSiteIds.push(siteId)
-        window.preferenceStore.setItem('activatedSiteIds', state.activatedSiteIds)
+        ls.setItem('activatedSiteIds', state.activatedSiteIds)
       }
     },
     REMOVE_ACTIVATED_SITE: (state, siteId) => {
       if (indexOf(state.activatedSiteIds, siteId) >= -1) {
         pull(state.activatedSiteIds, siteId)
-        window.preferenceStore.setItem('activatedSiteIds', state.activatedSiteIds)
+        ls.setItem('activatedSiteIds', state.activatedSiteIds)
       }
     }
   },
