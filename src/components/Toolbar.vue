@@ -43,9 +43,15 @@ export default {
         color: $brand-primary;
         text-decoration: none;
       }
-      &.layout-toogle{
+      &.extension{
         display: none;
         @include media-breakpoint-up('lg'){
+          display: block;
+        }
+      }
+      &.layout-toogle{
+        display: none;
+        @include media-breakpoint-up('md'){
           display: block;
         }
         .item-icon{

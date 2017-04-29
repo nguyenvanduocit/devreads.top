@@ -33,11 +33,9 @@
     .tagline {
       margin: 10px 0 0;
       font-size: 14px;
-      line-height: 20px;
       @include media-breakpoint-up('lg'){
         margin-top: 0;
         font-size: 16px;
-        line-height: 24px;
       }
     }
   }
