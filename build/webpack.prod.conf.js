@@ -104,10 +104,7 @@ var webpackConfig = merge(baseWebpackConfig, {
           urlPattern: /\/api\//,
         },{
           handler: 'cacheFirst',
-          urlPattern: /[.](ttf)|(woff)$/,
-        },{
-          handler: 'cacheFirst',
-          urlPattern: /fonts\.googleapis\.com/,
+          urlPattern: /\/static\//,
         }],
       }
     )

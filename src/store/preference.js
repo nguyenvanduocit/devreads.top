@@ -21,7 +21,7 @@ export default {
         if (value) {
           commit('SET_ACTIVATED_SITES', value)
         } else {
-          commit('SET_ACTIVATED_SITES', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
+          commit('SET_ACTIVATED_SITES', ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'])
         }
       })
       return Promise.all([getLayoutPromise, getActivatedSiteIdsPromise])
