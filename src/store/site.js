@@ -16,11 +16,13 @@ export default {
               commit('ADD_SITE', site)
             }
           }
+          let newsList = {}
           for (let news of response.data.included) {
             if (news.type === 'news') {
-              commit('news/ADD_NEWS', news, { root: true })
+              newsList[news.id] = news
             }
           }
+          commit('news/SET_NEWS', newsList, { root: true })
           resolve()
         }).catch(error => {
           reject(error)

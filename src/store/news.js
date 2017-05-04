@@ -26,6 +26,9 @@ export default {
     ADD_NEWS: (state, news) => {
       Vue.set(state.newsList, news.id, news)
     },
+    SET_NEWS: (state, newsList) => {
+      Vue.set(state, 'newsList', newsList)
+    },
     ADD_PICKED_NEWS: (state, news) => {
       Vue.set(state.pickedNewsList, news.id, news)
     }
