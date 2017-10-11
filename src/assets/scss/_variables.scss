@@ -1,29 +1,28 @@
-$white:  #fff !default;
-$black:  #000 !default;
-$red:    #d9534f !default;
+$white: #fff !default;
+$black: #000 !default;
+$red: #d9534f !default;
 $orange: #f0ad4e !default;
 $yellow: #ffd500 !default;
-$green:  #5cb85c !default;
-$blue:   #0275d8 !default;
-$teal:   #5bc0de !default;
-$pink:   #ff5b77 !default;
+$green: #5cb85c !default;
+$blue: #0275d8 !default;
+$teal: #5bc0de !default;
+$pink: #ff5b77 !default;
 $purple: #613d7c !default;
 
 // Create grayscale
-$gray-dark:                 #292b2c !default;
-$gray:                      #464a4c !default;
-$gray-light:                #636c72 !default;
-$gray-lighter:              #eceeef !default;
-$gray-lightest:             #f7f7f9 !default;
+$gray-dark: #292b2c !default;
+$gray: #464a4c !default;
+$gray-light: #636c72 !default;
+$gray-lighter: #eceeef !default;
+$gray-lightest: #f7f7f9 !default;
 
 // Reassign color vars to semantic color scheme
-$brand-primary:             $gray-light !default;
-$brand-success:             $green !default;
-$brand-info:                $teal !default;
-$brand-warning:             $orange !default;
-$brand-danger:              $red !default;
-$brand-inverse:             $gray-dark !default;
-
+$brand-primary: $gray-light !default;
+$brand-success: $green !default;
+$brand-info: $teal !default;
+$brand-warning: $orange !default;
+$brand-danger: $red !default;
+$brand-inverse: $gray-dark !default;
 
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
@@ -31,22 +30,22 @@ $column-count: 12;
 $gutter-width: 30px;
 
 // Extra small
-$xs-max:543px;
+$xs-max: 543px;
 
 // Small
-$sm-min:544px;
-$sm-max:767px;
+$sm-min: 544px;
+$sm-max: 767px;
 
 // Medium
-$md-min:768px;
-$md-max:991px;
+$md-min: 768px;
+$md-max: 991px;
 
 // Large
-$lg-min:992px;
-$lg-max:1199px;
+$lg-min: 992px;
+$lg-max: 1199px;
 
 // Extras Large
-$xl-min:1200px;
+$xl-min: 1200px;
 
 $grid-gutter-widths: (
   xs: $gutter-width,
@@ -56,29 +55,17 @@ $grid-gutter-widths: (
   xl: $gutter-width
 );
 
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-);
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
 
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 960px
-);
-
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 960px);
 
 $font__primary: 'Roboto', sans-serif;
 $font__heading: 'Roboto', sans-serif;
 
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg:   1.25rem !default;
-$font-size-sm:   .875rem !default;
-$font-size-xs:   .75rem !default;
+$font-size-lg: 1.25rem !default;
+$font-size-sm: 0.875rem !default;
+$font-size-xs: 0.75rem !default;
 
 $font-size-h1: 2.5rem !default;
 $font-size-h2: 2rem !default;
@@ -87,47 +74,47 @@ $font-size-h4: 1.5rem !default;
 $font-size-h5: 1.25rem !default;
 $font-size-h6: 1rem !default;
 
-$transition-base:        all .2s ease-in-out !default;
-$transition-fade:        opacity .15s linear !default;
-$transition-collapse:    height .35s ease !default;
+$transition-base: all 0.2s ease-in-out !default;
+$transition-fade: opacity 0.15s linear !default;
+$transition-collapse: height 0.35s ease !default;
 
-$btn-primary-color:              $white !default;
-$btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             $btn-primary-bg !default;
+$btn-primary-color: $white !default;
+$btn-primary-bg: $brand-primary !default;
+$btn-primary-border: $btn-primary-bg !default;
 
-$btn-secondary-color:            $gray-dark !default;
-$btn-secondary-bg:               $white !default;
-$btn-secondary-border:           #ccc !default;
+$btn-secondary-color: $gray-dark !default;
+$btn-secondary-bg: $white !default;
+$btn-secondary-border: #ccc !default;
 
-$btn-info-color:                 $white !default;
-$btn-info-bg:                    $brand-info !default;
-$btn-info-border:                $btn-info-bg !default;
+$btn-info-color: $white !default;
+$btn-info-bg: $brand-info !default;
+$btn-info-border: $btn-info-bg !default;
 
-$btn-success-color:              $white !default;
-$btn-success-bg:                 $brand-success !default;
-$btn-success-border:             $btn-success-bg !default;
+$btn-success-color: $white !default;
+$btn-success-bg: $brand-success !default;
+$btn-success-border: $btn-success-bg !default;
 
-$btn-warning-color:              $white !default;
-$btn-warning-bg:                 $brand-warning !default;
-$btn-warning-border:             $btn-warning-bg !default;
+$btn-warning-color: $white !default;
+$btn-warning-bg: $brand-warning !default;
+$btn-warning-border: $btn-warning-bg !default;
 
-$btn-danger-color:               $white !default;
-$btn-danger-bg:                  $brand-danger !default;
-$btn-danger-border:              $btn-danger-bg !default;
+$btn-danger-color: $white !default;
+$btn-danger-bg: $brand-danger !default;
+$btn-danger-border: $btn-danger-bg !default;
 
 // Body
 //
 // Settings for the `<body>` element.
 
-$body-bg:       #FAFAFA !default;
-$body-color:    $gray-dark !default;
+$body-bg: #fafafa !default;
+$body-color: $gray-dark !default;
 
 // Links
 //
 // Style anchor elements.
 
-$link-color:            $brand-primary !default;
-$link-decoration:       none !default;
-$link-hover-color:      darken($link-color, 15%) !default;
-$link-visited-color:      lighten($link-color, 10%) !default;
+$link-color: $brand-primary !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-visited-color: lighten($link-color, 10%) !default;
 $link-hover-decoration: underline !default;
