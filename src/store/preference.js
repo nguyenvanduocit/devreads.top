@@ -1,67 +1,91 @@
-import pull from 'lodash/pull'
-import indexOf from 'lodash/indexOf'
-import ls from '../services/ls'
+import pull from "lodash/pull";
+import indexOf from "lodash/indexOf";
+import ls from "../services/ls";
 export default {
   namespaced: true,
   state: {
-    layout: 'COMPACT', // CLEAN,
+    layout: "COMPACT", // CLEAN,
     activatedSiteIds: []
   },
   actions: {
-    LOAD_PREFERENCE: ({commit, state}) => {
-      let getLayoutPromise = ls.getItem('layout').then((value) => {
+    LOAD_PREFERENCE: ({ commit, state }) => {
+      let getLayoutPromise = ls.getItem("layout").then(value => {
         if (!value) {
-          value = 'COMPACT'
-          commit('SET_LAYOUT', value, true)
+          value = "COMPACT";
+          commit("SET_LAYOUT", value, true);
         } else {
-          commit('SET_LAYOUT', value)
+          commit("SET_LAYOUT", value);
         }
-      })
-      let getActivatedSiteIdsPromise = ls.getItem('activatedSiteIds').then((value) => {
-        if (value) {
-          commit('SET_ACTIVATED_SITES', value)
-        } else {
-          commit('SET_ACTIVATED_SITES', ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'])
-        }
-      })
-      return Promise.all([getLayoutPromise, getActivatedSiteIdsPromise])
+      });
+      let getActivatedSiteIdsPromise = ls
+        .getItem("activatedSiteIds")
+        .then(value => {
+          if (value) {
+            commit("SET_ACTIVATED_SITES", value);
+          } else {
+            commit("SET_ACTIVATED_SITES", [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20"
+            ]);
+          }
+        });
+      return Promise.all([getLayoutPromise, getActivatedSiteIdsPromise]);
     },
-    TOGGLE_LAYOUT: ({commit, state}) => {
-      if (state.layout === 'COMPACT') {
-        commit('SET_LAYOUT', 'CLEAN', true)
-        ls.setItem('layout', 'CLEAN')
+    TOGGLE_LAYOUT: ({ commit, state }) => {
+      if (state.layout === "COMPACT") {
+        commit("SET_LAYOUT", "CLEAN", true);
+        ls.setItem("layout", "CLEAN");
       } else {
-        commit('SET_LAYOUT', 'COMPACT', true)
-        ls.setItem('layout', 'COMPACT')
+        commit("SET_LAYOUT", "COMPACT", true);
+        ls.setItem("layout", "COMPACT");
       }
     }
   },
   mutations: {
     SET_LAYOUT: (state, layout, updateStorage) => {
-      state.layout = layout
+      state.layout = layout;
     },
     SET_ACTIVATED_SITES: (state, siteIds, updateStorage) => {
-      state.activatedSiteIds = siteIds
+      state.activatedSiteIds = siteIds;
     },
     ADD_ACTIVATED_SITE: (state, siteId) => {
       if (indexOf(state.activatedSiteIds, siteId) === -1) {
-        state.activatedSiteIds.push(siteId)
-        ls.setItem('activatedSiteIds', state.activatedSiteIds)
+        state.activatedSiteIds.push(siteId);
+        ls.setItem("activatedSiteIds", state.activatedSiteIds);
       }
     },
     REMOVE_ACTIVATED_SITE: (state, siteId) => {
       if (indexOf(state.activatedSiteIds, siteId) >= -1) {
-        pull(state.activatedSiteIds, siteId)
-        ls.setItem('activatedSiteIds', state.activatedSiteIds)
+        pull(state.activatedSiteIds, siteId);
+        ls.setItem("activatedSiteIds", state.activatedSiteIds);
       }
     }
   },
   getters: {
     layout: state => {
-      return state.layout
+      return state.layout;
     },
     activatedSiteIds: state => {
-      return state.activatedSiteIds
+      return state.activatedSiteIds;
     }
   }
-}
+};
