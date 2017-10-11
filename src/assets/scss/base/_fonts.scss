@@ -1,15 +1,16 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('/static/fonts/icomoon.eot?uagskc');
-  src:  url('/static/fonts/icomoon.eot?uagskc#iefix') format('embedded-opentype'),
-  url('/static/fonts/icomoon.ttf?uagskc') format('truetype'),
-  url('/static/fonts/icomoon.woff?uagskc') format('woff'),
-  url('/static/fonts/icomoon.svg?uagskc#icomoon') format('svg');
+  src: url('/static/fonts/icomoon.eot?uagskc');
+  src: url('/static/fonts/icomoon.eot?uagskc#iefix') format('embedded-opentype'),
+    url('/static/fonts/icomoon.ttf?uagskc') format('truetype'),
+    url('/static/fonts/icomoon.woff?uagskc') format('woff'),
+    url('/static/fonts/icomoon.svg?uagskc#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^='icon-'],
+[class*=' icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -25,12 +26,11 @@
 }
 
 .icon-preference:before {
-  content: "\e01d";
+  content: '\e01d';
 }
 .icon-two-column-layout:before {
-  content: "\e900";
+  content: '\e900';
 }
 .icon-one-column-layout:before {
-  content: "\e901";
+  content: '\e901';
 }
-
